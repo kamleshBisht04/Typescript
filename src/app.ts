@@ -515,7 +515,7 @@ let kamleshEmployee: employee = {
 console.log(kamleshEmployee);
 
 // ======================================
-// index signiture =>provide dynamic data in 
+// index signiture =>provide dynamic data in
 // object when we dos't known properties
 
 interface teacherDataType {
@@ -537,3 +537,81 @@ console.log(teacherData);
 
 // ======================================
 // type narrwoing
+
+// let status: string | number = "pending";
+
+// if (typeof status === "string") {
+//   console.log(status.toUpperCase());
+// } else {
+//   console.log(status);
+// }
+
+// with function
+
+function printValue(value: string | number) {
+  if (typeof value === "string") {
+    console.log(value.toUpperCase());
+  } else {
+    console.log(value.toFixed(2));
+  }
+}
+printValue("welcome");
+printValue(56);
+
+// in operater in narrowing in object
+
+interface Admin {
+  name: string;
+  permissions: string[];
+}
+
+interface Users {
+  name: string;
+  email: string;
+}
+let kamleshUsers: Users = {
+  name: "kamlesh",
+  email: "kamleshbisht04@gmail.com",
+};
+
+let kamleshAdmin: Admin = {
+  name: "kamleshAdmin",
+  permissions: ["READ ,WRITE,UPDATE"],
+};
+function getUser(user: Admin | Users) {
+  if ("permissions" in user) {
+    console.log(user.permissions);
+  } else {
+    console.log(user.email);
+  }
+}
+
+getUser(kamleshUsers);
+getUser(kamleshAdmin);
+
+// for class instance of
+
+class Dog {
+  bark() {
+    console.log("bhaw bhaw");
+  }
+}
+
+class Cat {
+  meau() {
+    console.log("meau meau");
+  }
+}
+
+function makeSound(animal: Dog | Cat) {
+  if (animal instanceof Dog) {
+    animal.bark();
+  } else {
+    animal.meau();
+  }
+}
+
+makeSound(new Cat());
+makeSound(new Dog());
+
+// ========================================

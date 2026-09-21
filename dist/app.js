@@ -307,4 +307,61 @@ const teacherData = {
 console.log(teacherData);
 // ======================================
 // type narrwoing
+// let status: string | number = "pending";
+// if (typeof status === "string") {
+//   console.log(status.toUpperCase());
+// } else {
+//   console.log(status);
+// }
+// with function
+function printValue(value) {
+    if (typeof value === "string") {
+        console.log(value.toUpperCase());
+    }
+    else {
+        console.log(value.toFixed(2));
+    }
+}
+printValue("welcome");
+printValue(56);
+let kamleshUsers = {
+    name: "kamlesh",
+    email: "kamleshbisht04@gmail.com",
+};
+let kamleshAdmin = {
+    name: "kamleshAdmin",
+    permissions: ["READ ,WRITE,UPDATE"],
+};
+function getUser(user) {
+    if ("permissions" in user) {
+        console.log(user.permissions);
+    }
+    else {
+        console.log(user.email);
+    }
+}
+getUser(kamleshUsers);
+getUser(kamleshAdmin);
+// for class instance of
+class Dog {
+    bark() {
+        console.log("bhaw bhaw");
+    }
+}
+class Cat {
+    meau() {
+        console.log("meau meau");
+    }
+}
+function makeSound(animal) {
+    if (animal instanceof Dog) {
+        animal.bark();
+    }
+    else {
+        animal.meau();
+    }
+}
+makeSound(new Cat());
+makeSound(new Dog());
+// ========================================
 //# sourceMappingURL=app.js.map
