@@ -615,3 +615,34 @@ makeSound(new Cat());
 makeSound(new Dog());
 
 // ========================================
+
+type userType = {
+  id: string;
+  name: string;
+  branch: string;
+  city: string;
+  state: string;
+  pincode: number;
+  readonly age: number;
+};
+
+// make optonal
+type newUser = {
+  [key in keyof userType]?: userType[key];
+  // readonly [key in keyof userType]?: userType[key];
+};
+
+let guestUser: newUser = {
+  name: "Deepak",
+  pincode: 263663,
+  branch: "almora",
+  age: 20,
+};
+
+//guestUser.age = 26; // if readonly it will dont change error in compile time
+console.log(guestUser);
+
+// ========================================
+
+
+

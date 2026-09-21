@@ -363,5 +363,13 @@ function makeSound(animal) {
 }
 makeSound(new Cat());
 makeSound(new Dog());
+let guestUser = {
+    name: "Deepak",
+    pincode: 263663,
+    branch: "almora",
+    age: 20,
+};
+//guestUser.age = 26; // if readonly it will dont change error in compile time
+console.log(guestUser);
 // ========================================
 //# sourceMappingURL=app.js.map
