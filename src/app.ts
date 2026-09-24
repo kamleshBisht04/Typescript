@@ -701,4 +701,98 @@ console.log(samsung.buyProduct());
 samsung.addToCart();
 console.log(samsung.buyProduct());
 
-// 
+// Access modifire
+// public
+// class Persons {
+//   name: string;
+//   constructor(name: string) {
+//     this.name = name;
+//   }
+//   showName(): void {
+//     console.log(`The user name is ${this.name}`);
+//   }
+// }
+
+// const person = new Persons("kamlesh");
+
+// person.showName();
+// console.log(person.name);
+
+// private
+// class Persons {
+//   private name: string;
+//   constructor(name: string) {
+//     this.name = name;
+//   }
+//   showName(): void {
+//     console.log(`The user name is ${this.name}`);
+//   }
+// }
+
+// const person = new Persons("kamlesh");
+
+// person.showName();
+// // console.log(person.name);  // access only with in the class not outside
+
+class Persons {
+  protected name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+class AdminOne extends Persons {
+  showName() {
+    console.log(this.name);
+  }
+}
+
+const admin = new AdminOne("Kamlesh");
+
+admin.showName(); // ✅
+// console.log(admin.name); // Error
+
+//===============================================
+// getter and setter
+
+class customer {
+  private _name: string;
+
+  constructor(name: string) {
+    this._name = name;
+  }
+
+  //getter
+  get name(): string {
+    return this._name;
+  }
+
+  set name(newName: string) {
+    this._name = newName;
+  }
+}
+const cust = new customer("Deepak");
+console.log(cust.name);
+
+cust.name = "jay kumar ";
+console.log(cust.name);
+
+// Generic
+
+function identity<T>(value: T): T {
+  return value;
+}
+let result1 = identity(100);
+let result2 = identity("sanjay");
+let result3 = identity(true);
+let result4 = identity([1,2,3,4,5]);
+
+console.log(result1);
+console.log(result2);
+console.log(result3);
+console.log(result4);
+
+// utility type in typescript 
+
+
