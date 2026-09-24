@@ -369,7 +369,54 @@ let guestUser = {
     branch: "almora",
     age: 20,
 };
-//guestUser.age = 26; // if readonly it will dont change error in compile time
+// guestUser.age = 26; // if readonly it will dont change error in compile time
 console.log(guestUser);
 // ========================================
+// for class typescript
+class Student {
+    name;
+    branch;
+    age;
+    constructor(name, branch, age) {
+        this.name = name;
+        this.branch = branch;
+        this.age = age;
+    }
+    getDetails() {
+        console.log(`student name is ${this.name} and branch is ${this.branch} and age is ${this.age}`);
+    }
+}
+const student = new Student("kamlesh", "computer science", 30);
+// console.log(student);
+console.log(student.getDetails());
+// another example
+class Product {
+    name;
+    price;
+    pId;
+    inCart = false;
+    isOrdered = false;
+    constructor(name, price, pid) {
+        this.name = name;
+        this.price = price;
+        this.pId = pid;
+    }
+    addToCart() {
+        this.inCart = true;
+    }
+    buyProduct() {
+        if (this.inCart) {
+            this.isOrdered = true;
+            return `Product ${this.name} is ordered in this ${this.price}`;
+        }
+        else {
+            return `No product in cart`;
+        }
+    }
+}
+const samsung = new Product("sumsung", 100000, 112236);
+console.log(samsung.buyProduct());
+samsung.addToCart();
+console.log(samsung.buyProduct());
+// 
 //# sourceMappingURL=app.js.map
